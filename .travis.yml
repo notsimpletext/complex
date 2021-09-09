@@ -1,0 +1,19 @@
+language: generic
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t notsimpletext/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true notsimpletext/react-test npm test
+
+after_success:
+  - docker build -t notsimpletext/multi-client ./client
+  - docker build -t notsimpletext/multi-nginx ./nginx
+  - docker build -t notsimpletext/multi-server ./server
+  - docker build -t notsimpletext/multi-worker ./worker
+# log in to tje docker cli
+
+# take those images and push them to docker hub
