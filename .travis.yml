@@ -17,6 +17,11 @@ after_success:
   - docker build -t notsimpletext/multi-worker ./worker
 # log in to tje docker cli
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+# tagging
+  - docker tag multi-client dimamikhalchuk/multi-client
+  - docker tag multi-nginx dimamikhalchuk/multi-nginx
+  - docker tag multi-server dimamikhalchuk/multi-server
+  - docker tag multi-worker dimamikhalchuk/multi-worker
 # take those images and push them to docker hub
   - docker push dimamikhalchuk/multi-client
   - docker push dimamikhalchuk/multi-nginx
