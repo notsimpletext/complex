@@ -18,12 +18,12 @@ after_success:
 # log in to tje docker cli
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 # tagging
-  - docker tag dimamikhalchuk/multi-client:latest
-  - docker tag dimamikhalchuk/multi-nginx:latest
-  - docker tag dimamikhalchuk/multi-server:latest
-  - docker tag dimamikhalchuk/multi-worker:latest
+#  - docker tag dimamikhalchuk/multi-client:latest
+ # - docker tag dimamikhalchuk/multi-nginx:latest
+ # - docker tag dimamikhalchuk/multi-server:latest
+#  - docker tag dimamikhalchuk/multi-worker:latest
 # take those images and push them to docker hub
-  - docker push dimamikhalchuk/multi-client
-  - docker push dimamikhalchuk/multi-nginx
-  - docker push dimamikhalchuk/multi-server
-  - docker push dimamikhalchuk/multi-worker
+  - docker push notsimpletext/multi-client
+  - docker push notsimpletext/multi-nginx
+  - docker push notsimpletext/multi-server
+  - docker push notsimpletext/multi-worker
